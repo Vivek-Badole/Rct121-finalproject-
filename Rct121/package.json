@@ -25,9 +25,10 @@
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
-    "typescript": "4.1.3"
+    "typescript": "3.2.1"
   },
   "scripts": {
+    "json-server": "json-server --watch db.json -p 8080",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
