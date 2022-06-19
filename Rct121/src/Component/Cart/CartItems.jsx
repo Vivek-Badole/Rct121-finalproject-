@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import {
   AddBoxOutlined,
   Clear,
-  CloseFullscreenOutlined,
-  CloseOutlined,
-  IndeterminateCheckBoxOutlined,
+  IndeterminateCheckBoxOutlined
 } from "@mui/icons-material";
 import {
   Brand,
   CartItemDiv,
-  CartItems,
   Filtercontainer,
   FilterPM,
   Imagediv,
@@ -22,18 +19,11 @@ import {
   PriceDis,
   RButton,
   RemoveButtonDiv,
-  SizeDiv,
+  SizeDiv
 } from "./Cart.element";
-import {
-  decrease,
-  decreaseQty,
-  deleteBagData,
-  getBagData,
-  increase,
-  increaseQty,
-} from "../../redux/Cart/action";
+import { deleteBagData } from "../../redux/Cart/action";
 import { useDispatch, useSelector } from "react-redux";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 const CartItemsDiv = ({
   images,
   id,
@@ -42,35 +32,26 @@ const CartItemsDiv = ({
   price,
   off_price,
   discount,
-  brand,
+  brand
 }) => {
-  const navigate = useNavigate()
-  const [count , setCount] = useState(0)
+  const [count, setCount] = useState(0);
   const bagData = useSelector((state) => state.bag.bagData);
   const dispatch = useDispatch();
   const handleModelBagClose = (id) => {
     dispatch(deleteBagData(id));
   };
 
-  // const increaseQ = (id, quantity) => {
-  //   const newQty = quantity + 1;
-  //   if (1 >= quantity) {
-  //     return;
-  //   }
-  //   dispatch(increase(id, newQty));
-  // };
-  const increaseQ = () => {
+  const increaseQuantity = () => {
     setCount(count + 1);
   };
-  const decreaseQ = () => {
-
+  const decreaseQuantity = () => {
     setCount(count - 1);
   };
 
   return (
     <CartItemDiv>
       <Imagediv>
-        <ItemIamge src={images.image1}/>
+        <ItemIamge src={images.image1} />
       </Imagediv>
       <ItemInfoDiv>
         <Brand>{brand}</Brand>
@@ -81,20 +62,20 @@ const CartItemsDiv = ({
           </SizeDiv>
           <FilterPM>
             <AddBoxOutlined
-              onClick={() => increaseQ(id, 0)}
+              onClick={() => increaseQuantity(id, 0)}
               sx={{
                 backgroundColor: "#fff",
                 color: "black",
-                marginRight: "5px",
+                marginRight: "5px"
               }}
             />
             <p>{count}</p>
             <IndeterminateCheckBoxOutlined
-              onClick={() => decreaseQ(id, count)}
+              onClick={() => decreaseQuantity(id, count)}
               sx={{
                 color: "black",
                 backgroundColor: "#fff",
-                marginLeft: "5px",
+                marginLeft: "5px"
               }}
             />
           </FilterPM>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -10,13 +10,13 @@ import truck from "../../Images/truck.webp";
 
 import {
   AddressDiv,
-  AvailableofferDiv,
+  AvailableDiv,
   AvaOffer,
   CartItems,
   CartItemsScroll,
   CartLeft,
   ChangeButton,
-  Container,
+  CartContainer,
   DeliverTo,
   FirstOffer,
   LogoTruck,
@@ -24,7 +24,7 @@ import {
   NoConviDiv,
   TopLA,
   WishListItem,
-  WishName,
+  WishName
 } from "./Cart.element";
 import CartNav from "./CartNav";
 import CartFoot from "./CartFoot";
@@ -44,17 +44,15 @@ const Cart = () => {
       ))
   );
 
-  console.log(bagData)
+  console.log(bagData);
   // console.log(totalAmount);
 
   useEffect(() => {
     dispatch(getBagData());
   }, [dispatch]);
 
-
-
   return (
-    <Container>
+    <CartContainer>
       <CartNav color="20bd99" />
       <CartItems>
         <CartLeft>
@@ -63,7 +61,7 @@ const Cart = () => {
             <ChangeButton>CHANGE ADDRESS</ChangeButton>
           </AddressDiv>
 
-          <AvailableofferDiv>
+          <AvailableDiv>
             <TopLA>
               <DiscountOutlined sx={{ width: "25px", height: "25px" }} />
               <AvaOffer>Available Offers</AvaOffer>
@@ -79,7 +77,7 @@ const Cart = () => {
                     sx={{
                       color: "#ff3f6c",
                       marginLeft: "-500px",
-                      fontSize: "12px",
+                      fontSize: "12px"
                     }}
                   />
                 }
@@ -90,7 +88,7 @@ const Cart = () => {
                   sx={{
                     color: "#ff3f6c",
                     fontSize: "12px",
-                    marginBottom: "none",
+                    marginBottom: "none"
                   }}
                 >
                   Show More
@@ -122,7 +120,7 @@ const Cart = () => {
                 </Typography>
               </AccordionDetails>
             </Accordion>
-          </AvailableofferDiv>
+          </AvailableDiv>
           <NoConviDiv>
             <LogoTruck src={truck} />
             <NoConvi>
@@ -142,7 +140,7 @@ const Cart = () => {
         <CartRightS />
       </CartItems>
       <CartFoot />
-    </Container>
+    </CartContainer>
   );
 };
 

@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-
-`;
+export const CartContainer = styled.div``;
 
 export const CartItems = styled.div`
   display: flex;
@@ -10,7 +8,6 @@ export const CartItems = styled.div`
   justify-content: center;
   font-size: 12px;
   margin-bottom: 40px;
-
 `;
 export const CartLeft = styled.div`
   width: 60%;
@@ -20,7 +17,7 @@ export const CartLeft = styled.div`
 `;
 export const AddressDiv = styled.div`
   padding: 8px 16px;
-  height:50px;
+  height: 50px;
   border-radius: 4px;
   border: 1px solid #eaeaec;
   display: flex;
@@ -33,7 +30,7 @@ export const AddressDiv = styled.div`
 export const DeliverTo = styled.p``;
 export const ChangeButton = styled.button`
   width: 25%;
-  padding:10px;
+  padding: 10px;
   border: 1px solid #ff3f6c;
   border-radius: 4px;
   margin-right: 0;
@@ -41,13 +38,13 @@ export const ChangeButton = styled.button`
   background: #fff;
   font-size: 12px;
   font-weight: 600;
-cursor: pointer;
+  cursor: pointer;
   &:hover {
     background-color: #ff3f6c;
     color: #fff;
   }
 `;
-export const AvailableofferDiv = styled.div`
+export const AvailableDiv = styled.div`
   padding: 8px 16px;
   margin-left: 30%;
   border-radius: 4px;
@@ -188,8 +185,6 @@ export const WishName = styled.p`
   }
 `;
 
-
-
 export const Hr = styled.hr`
   width: 70%;
   height: 1px;
@@ -197,5 +192,3 @@ export const Hr = styled.hr`
   text-align: center;
   margin-top: 50px;
 `;
-
-

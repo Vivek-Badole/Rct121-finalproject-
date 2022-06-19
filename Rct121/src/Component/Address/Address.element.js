@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-font-size: 12px;
+export const BoxContainer = styled.div`
+  font-size: 12px;
 `;
 
 export const AddressFormDiv = styled.div`
@@ -11,7 +11,6 @@ export const FormLeftdiv = styled.div`
   width: 60%;
 `;
 export const FormDiv = styled.form`
-  
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -19,12 +18,11 @@ export const FormDiv = styled.form`
   gap: 5px;
 `;
 export const Headings = styled.p`
-font-size: 20px;
-font-weight: 600;
-margin: 0;
-
-`
-export const ContactDetailsdiv = styled.div`
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+`;
+export const ContactDetails = styled.div`
   border-radius: 4px;
   margin-left: 30%;
   padding: 8px 16px;
@@ -64,7 +62,7 @@ export const PinCodeInput = styled.input`
   padding: 5px;
   font-size: 14px;
 `;
-export const FullAddInput = styled.input`
+export const AddInput = styled.input`
   border-radius: 4px;
   width: 450px;
   height: 25px;
@@ -112,7 +110,7 @@ export const SaveHome = styled.button`
   width: 80px;
   height: 40px;
   font-size: 14px;
-  color : gray;
+  color: gray;
 
   &:hover {
     background-color: #ff3f6c;
@@ -141,7 +139,6 @@ export const ButtonDiv = styled.div`
   margin-left: 30%;
   width: 460px;
 `;
-
 
 export const AddAddressButton = styled.button`
   cursor: pointer;

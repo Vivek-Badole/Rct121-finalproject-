@@ -1,8 +1,7 @@
 import React from "react";
 import CartFoot from "../Cart/CartFoot";
-import CartRight from "../Cart/CartRight";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import {
   AddAddressButton,
   AddressCheckoutAdd,
@@ -10,14 +9,14 @@ import {
   AddressFormDiv,
   ButtonDiv,
   CityInput,
-  ContactDetailsdiv,
+  ContactDetails,
   ContactInput,
-  Container,
+  BoxContainer,
   DotsCheckoutAdd,
   FormDiv,
   FormLeftdiv,
   FormRightDiv,
-  FullAddInput,
+  AddInput,
   Headings,
   NameInput,
   PinCodeInput,
@@ -87,10 +86,10 @@ const Address = () => {
   };
   const addAddress = (e) => {
     e.preventDefault();
-    toast.success("Address Added SuccessFully");
+    // toast.success("Address Added SuccessFully");
   };
   return (
-    <Container>
+    <BoxContainer>
       <NavContainer>
         <NavLogo>
           <Logo src={Logoimg} onClick={() => navigate("/")} />
@@ -110,16 +109,16 @@ const Address = () => {
       <AddressFormDiv>
         <FormLeftdiv>
           <FormDiv>
-            <ContactDetailsdiv>
+            <ContactDetails>
               <Headings>Contact Details</Headings>
 
               <NameInput placeholder="Enter Your Name" />
               <ContactInput placeholder="Enter Your Mobile No." />
-            </ContactDetailsdiv>
+            </ContactDetails>
             <Addressdiv>
               <Headings>Address</Headings>
               <PinCodeInput placeholder="Enter Pin Code" />
-              <FullAddInput placeholder="Enter Full Address" />
+              <AddInput placeholder="Enter Full Address" />
               <TownInput placeholder="Enter Locality/Town" />
               <CityInput placeholder="Enter City/District" />
               <StateInput placeholder="Enter State" />
@@ -173,8 +172,8 @@ const Address = () => {
         </FormRightDiv>
       </AddressFormDiv>
       <CartFoot />
-      <ToastContainer />
-    </Container>
+      {/* <ToastContainer /> */}
+    </BoxContainer>
   );
 };
 
