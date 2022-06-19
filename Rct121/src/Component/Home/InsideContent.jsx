@@ -39,31 +39,31 @@ function InsideContent() {
   // console.log("data", dealsDay);
   const dispatch = useDispatch();
   useEffect(() => {
-    axios({ url: "/dealsday", method: "GET" })
+    axios({ url: "https://myntra-data.herokuapp.com/dealsday", method: "GET" })
       .then((res) => res.data)
       .then((res) => dispatch(getDealsDay(res)))
       .catch((e) => console.log(e));
-    axios({ url: "/bestMyntra", method: "GET" })
+    axios({ url: "https://myntra-data.herokuapp.com/bestMyntra", method: "GET" })
       .then((res) => res.data)
       .then((res) => dispatch(getBestMyntra(res)))
       .catch((e) => console.log(e));
-    axios({ url: "/topPicks", method: "GET" })
+    axios({ url: "https://myntra-data.herokuapp.com/topPicks", method: "GET" })
       .then((res) => res.data)
       .then((res) => dispatch(getTopPicks(res)))
       .catch((e) => console.log(e));
-    axios({ url: "/categoriesBag", method: "GET" })
+    axios({ url: "https://myntra-data.herokuapp.com/categoriesBag", method: "GET" })
       .then((res) => res.data)
       .then((res) => dispatch(getCategoriesData(res)))
       .catch((e) => console.log(e));
-    axios({ url: "/GiftCards", method: "GET" })
+    axios({ url: "https://myntra-data.herokuapp.com/GiftCards", method: "GET" })
       .then((res) => res.data)
       .then((res) => dispatch(getGiftCards(res)))
       .catch((e) => console.log(e));
-    axios({ url: "/dealsArival", method: "GET" })
+    axios({ url: "https://myntra-data.herokuapp.com/dealsArival", method: "GET" })
       .then((res) => res.data)
       .then((res) => dispatch(getdealsArival(res)))
       .catch((e) => console.log(e));
-    axios({ url: "/newBrands", method: "GET" })
+    axios({ url: "https://myntra-data.herokuapp.com/newBrands", method: "GET" })
       .then((res) => res.data)
       .then((res) => dispatch(getNewBrands(res)))
       .catch((e) => console.log(e));
