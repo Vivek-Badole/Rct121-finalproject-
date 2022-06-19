@@ -68,7 +68,7 @@ function InsideContent() {
       .then((res) => dispatch(getNewBrands(res)))
       .catch((e) => console.log(e));
     axios({
-      url: "/topStyles",
+      url: "https://myntra-data.herokuapp.com/topStyles",
       method: "GET"
     })
       .then((res) => res.data)
