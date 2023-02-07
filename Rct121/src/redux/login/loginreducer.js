@@ -11,8 +11,6 @@ const loginstate = {
   userAuth: false,
   userReg: false,
   username: "",
-  cardnumber: "",
-  phoneNumber: "",
   email: "",
   bag: [],
 };
@@ -32,8 +30,6 @@ export const loginReducer = (state = loginstate, { type, payload }) => {
         bag: payload.cart,
         username: payload.username,
         email: payload.email,
-        cardnumber: payload.cardnumber,
-        phoneNumber: payload.mobilenumber,
       };
     case LOGIN_FAIL:
       return {

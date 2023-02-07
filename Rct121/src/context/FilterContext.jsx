@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { postBagData } from "../redux/Cart/action";
 
@@ -8,6 +8,7 @@ export const FilterProvider = ({ children }) => {
   const [isChecked, setChecked] = useState(false);
   const [data, setData] = useState([]);
   var [count, setCount] = useState(0);
+  const [isInput,setIsInput] = useState("");
   const dispatch = useDispatch();
 
   const handleEvent = (e, c) => {
@@ -16,6 +17,10 @@ export const FilterProvider = ({ children }) => {
     console.log(c);
     setChecked(c);
   };
+  const handleInput = (e)=>{
+    console.log(e,"input");
+    setIsInput(e);
+  }
   const handleData = (e) => {
     setData(e);
   };
@@ -35,6 +40,8 @@ export const FilterProvider = ({ children }) => {
         data,
         addToData,
         count,
+        handleInput,
+        isInput
       }}
     >
       {children}

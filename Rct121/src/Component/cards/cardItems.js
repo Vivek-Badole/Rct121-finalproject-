@@ -83,3 +83,12 @@ margin-right:38px;
   gap:20px
 }
 `
+export const Div = styled.div`
+display:flex;
+align-items:center;
+justify-content:center;
+border:2px solid red;
+margin-left:140%;
+width:200%;
+color:purple;
+`;

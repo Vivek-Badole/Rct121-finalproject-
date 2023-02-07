@@ -30,7 +30,7 @@ function WomenDetails() {
   const dispatch = useDispatch();
 
   const getData = async () => {
-    let res = await fetch(`https://myntra-data.herokuapp.com/women/${id}`);
+    let res = await fetch(`https://myntra-dataapi.onrender.com/women/${id}`);
     let datas = await res.json();
     console.log(datas);
     setData([datas]);

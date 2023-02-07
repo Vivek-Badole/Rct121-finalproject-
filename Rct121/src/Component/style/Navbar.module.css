@@ -68,3 +68,6 @@ ul {
   .dropdown:hover .dropdownContent {
     display: block;
   }
+  .in:focus{
+    outline: none;
+  }

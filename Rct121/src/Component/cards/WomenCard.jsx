@@ -50,15 +50,15 @@ function Card() {
   }
   useEffect(() => {
     const getData = async () => {
-      let res = await fetch("https://myntra-data.herokuapp.com/women");
+      let res = await fetch("https://myntra-dataapi.onrender.com/women");
       let data = await res.json();
         setData(data);
-       console.log(data[0][0].images)
+       //console.log(data[0][0].images)
       console.log(data);
     };
     getData();
   }, []);
-  // console.log(datas);
+   //console.log(datas);
   let filterData = [];
   useEffect(() => {
     if (event && isChecked) {
@@ -100,7 +100,7 @@ function Card() {
     datas.sort((a,b)=>b.price-a.price)
     
     }
-console.log(datas)
+//console.log(datas)
   return (
     <div>
       <TopDiv>
@@ -120,7 +120,7 @@ console.log(datas)
 
       <ContainerDiv>
         {!event && !isChecked
-          ? datas.map((ele) => {
+          ? datas.map((ele,i) => {
               return (
                 <MainDiv
                   onMouseEnter={() => {
@@ -130,6 +130,7 @@ console.log(datas)
                     handleLeave(ele);
                   }}
                   onClick={()=>{handleMove(ele)}}
+                  key={i}
                 >
                   <CardDiv flag={ele.mouse}>
                     <img
@@ -226,8 +227,8 @@ console.log(datas)
                         }}
                       >
                         <p style={{ marginRight: "-10px" }}> Sizes:</p>{" "}
-                        {ele.sizes.map((ele) => {
-                          return <p> {ele}</p>;
+                        {ele.sizes.map((ele,i) => {
+                          return <p key={i}> {ele}</p>;
                         })}
                       </div>
                       <div
@@ -260,7 +261,7 @@ console.log(datas)
               );
             })
           : newdata.length > 0
-          ? newdata.map((ele) => {
+          ? newdata.map((ele,i) => {
               return (
                 <MainDiv
                   onMouseEnter={() => {
@@ -270,6 +271,7 @@ console.log(datas)
                     handleLeave(ele);
                   }}
                   onClick={()=>{handleMove(ele)}}
+                  key={i}
                 >
                   <CardDiv flag={ele.mouse}>
                     <img
@@ -366,8 +368,8 @@ console.log(datas)
                         }}
                       >
                         <p style={{ marginRight: "-10px" }}> Sizes:</p>{" "}
-                        {ele.sizes.map((ele) => {
-                          return <p> {ele}</p>;
+                        {ele.sizes.map((ele,i) => {
+                          return <p key={i}> {ele}</p>;
                         })}
                       </div>
                       <div
@@ -399,7 +401,7 @@ console.log(datas)
                 </MainDiv>
               );
             })
-          : datas.map((ele) => {
+          : datas.map((ele,i) => {
               return (
                 <MainDiv
                   onMouseEnter={() => {
@@ -409,6 +411,7 @@ console.log(datas)
                     handleLeave(ele);
                   }}
                   onClick={()=>{handleMove(ele)}}
+                  key={i}
                 >
                   <CardDiv flag={ele.mouse}>
                     <img
@@ -505,8 +508,8 @@ console.log(datas)
                         }}
                       >
                         <p style={{ marginRight: "-10px" }}> Sizes:</p>{" "}
-                        {ele.sizes.map((ele) => {
-                          return <p> {ele}</p>;
+                        {ele.sizes.map((ele,i) => {
+                          return <p key={i}> {ele}</p>;
                         })}
                       </div>
                       <div

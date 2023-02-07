@@ -12,10 +12,10 @@ function Brandfilter() {
   let colorArr=[]
   useEffect(() => {
     const getData = async () => {
-      let res = await fetch("https://myntra-data.herokuapp.com/men");
+      let res = await fetch("https://myntra-dataapi.onrender.com/men");
       let data = await res.json();
       setData(data);
-      //   console.log(data);
+      // console.log(data);
     };
     getData();
   }, []);

@@ -11,6 +11,7 @@ import MensPage from "../Pages/MensPage";
 import Details from "../Component/Details/Details";
 import WomensPage from "../Pages/WomensPage";
 import WomenDetails from "../Component/Details/WomenDetails";
+import ErrorPage from "../Pages/ErrorPage";
 const AllRoutes = () => {
   return (
     <Routes>
@@ -25,6 +26,7 @@ const AllRoutes = () => {
       <Route extact path="/ordersuccess" element={<OrderConfirmPage />} />
       <Route extact path="/login" element={<LoginPage />} />
       <Route extact path="/register" element={<RegisterPage />} />
+      <Route path="*" element={<ErrorPage/>} />
     </Routes>
   );
 };

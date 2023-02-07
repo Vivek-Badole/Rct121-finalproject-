@@ -12,7 +12,7 @@ export const postAddtoBag = (payload) => async (dispatch) => {
     dispatch(postBagRequest());
   
     return axios
-      .post("http://localhost:5000/cart", payload)
+      .post("https://myntra-dataapi.onrender.com/cart", payload)
       .then((res) => {
         dispatch(postBagSuccess());
         dispatch(getBagData());

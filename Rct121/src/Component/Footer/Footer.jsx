@@ -7,7 +7,8 @@ function Footer() {
         display: "grid",
         gridTemplateColumns: "repeat(3,auto)",
         backgroundColor: "#fafbfc",
-        height: "300px"
+        height: "300px",
+        marginTop:"20px"
       }}
     >
       <div

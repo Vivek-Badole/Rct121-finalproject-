@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "react-toastify/dist/ReactToastify.min.css";
 import registerlogo from "../../Images/registerlogo.png";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,71 +7,117 @@ import {
   RegContainer,
   Form,
   FormInputDiv,
-  Title
+  Title,
+  Input,
+  Button,
+  P,
+  G
 } from "./Login.element";
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-};
 
 const Login = () => {
-  var arr = JSON.parse(localStorage.getItem("datas")) || [];
+  const navigate = useNavigate();
+  var arr = JSON.parse(localStorage.getItem("registerData")) || [];
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const initialValues = { email: "", password: "" };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [istrue,setIstrue]=useState(false);
+  const [isCred,setIsCred]=useState(false);
 
-  function authorisation() {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  };
+
+  useEffect(() => {
+   // console.log(formErrors);
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      authorisation(formValues);
+    }
+  }, [formErrors]);
+
+  const validate = (values) => {
+    const errors = {};
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+    if (!values.email) {
+      errors.email = "Email is required";
+    } else if (!regex.test(values.email)) {
+      errors.email = "This is not a valid email format!";
+    }
+    if (!values.password) {
+      errors.password = "Password is required";
+    }
+    return errors;
+  };
+
+  function authorisation(formValues) {
     for (var i = 0; i < arr.length; i++) {
-      if (arr[i].email === email && arr[i].password === password) {
-        navigate("/cart");
+      if (arr[i].email === formValues.email && arr[i].password === formValues.password) {
+        setIstrue(true);
+        setIsCred(false);
+        setTimeout(() => {
+          navigate("/");
+        }, 500);
       } else {
-        alert("Incorrect Email or Password");
+        setIsCred(true);
       }
     }
   }
 
-  const navigate = useNavigate();
 
   return (
     <RegContainer>
+      { istrue && (
+        <div><G>Signed in successfully</G></div>
+      )}
+      { isCred && (
+        <div><P>Incorrect Credentials</P></div>
+      )}
       <Register_logo src={registerlogo} alt="" />
       <Form onSubmit={handleSubmit}>
         <Title>LOGIN</Title>
         <FormInputDiv>
-          <input
+          <label>Email</label>
+          <Input
             type="email"
-            placeholder="Enter Email"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
+            name="email"
+            placeholder="Email"
+            value={formValues.email}
+            onChange={handleChange}
           />
-          <br></br>
-          <input
+          <P>{formErrors.email}</P>
+          <label>Password</label>
+          <Input
             type="password"
-            placeholder="Enter Password"
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
+            name="password"
+            placeholder="Password"
+            value={formValues.password}
+            onChange={handleChange}
           />
-          <br></br>
+          <P>{formErrors.password}</P>
 
-          <button
-            id="normal"
-            onClick={() => {
-              authorisation();
-            }}
-          >
+          <Button>
             LOGIN
-          </button>
+          </Button>
         </FormInputDiv>
       </Form>
 
       <p>
         New Here please
-        <Link to="/register">Register</Link>
+        <Link to="/register">{`  Register`}</Link>
       </p>
     </RegContainer>
   );
 };
 
-export default Login;
+
+ export default Login;
+

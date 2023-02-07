@@ -19,6 +19,4 @@ export let MainDiv = styled.div`
 ${'' /* dispay:flex;
 border:1px solid red */}
 
-
-
 `

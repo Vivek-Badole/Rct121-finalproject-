@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../style/Navbar.module.css";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import { useSelector } from "react-redux";
 import Badge from "@mui/material/Badge";
 import { FilterContext } from "../../context/FilterContext";
+
 const MainDiv = styled.div`
   display: grid;
   grid-template-columns: 100px 500px 500px 200px;
@@ -36,14 +37,24 @@ const navStyles = { marginTop: "8px", padding: "10px" };
 const searchBar = {
   display: "flex",
   marginTop: "25px",
-  paddingLeft: "80px",
-  backgroundColor: "whitesmoke"
+  marginBottom:"5px",
+  marginLeft:"100px",
+  backgroundColor: "whitesmoke",
+  border:"1px solid grey",
+  height:"33px",
+  width:"340px",
+  borderRadius:"2px"
 };
 function Navbar() {
   const navigate = useNavigate();
   const userAuth = useSelector((state) => state.loginreq.userAuth);
-  const { count } = useContext(FilterContext);
-  console.log(count);
+  const { count,handleInput} = useContext(FilterContext);
+  
+  const handleChange = (e) => {
+    handleInput(e.target.value)
+    
+  };
+  //console.log(count);
   return (
     <>
       <div style={divStyle}>
@@ -903,14 +914,13 @@ function Navbar() {
             <div
               style={{
                 backgroundColor: "#FFFFFF",
-                height: "20px",
-                marginTop: "2px"
+                height: "30px"
               }}
             >
-              <SearchIcon fontSize="large" />
+              <SearchIcon fontSize="large" style={{ color: "grey" }} />
             </div>
             <div>
-              <input
+              <input className={styles.in}
                 type="text"
                 placeholder="Search for products brands and more"
                 style={{
@@ -918,8 +928,8 @@ function Navbar() {
                   height: "30px",
                   background: "white",
                   marginTop: "0px",
-                  border: "none"
-                }}
+                  border: "none",
+                }} onChange={handleChange}
               ></input>
             </div>
           </div>

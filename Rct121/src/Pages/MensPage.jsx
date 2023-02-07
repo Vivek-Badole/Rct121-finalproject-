@@ -7,7 +7,7 @@ function MensPage() {
   return (
     <div>
       <Navbar />
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex",borderBottom:"2px solid grey",overflowX:"none"  }} >
         <Brandfilter />
         <Card />
       </div>
