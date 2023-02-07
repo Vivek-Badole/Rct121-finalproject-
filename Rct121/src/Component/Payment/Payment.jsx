@@ -235,7 +235,7 @@ const Payment = () => {
               <CardNumber
                 placeholder="Card Number"
                 onChange={(e) => e.target.value}
-                pattern={"^[0-9]{12}$"}
+                
                 maxlength="4"
                 required
               />

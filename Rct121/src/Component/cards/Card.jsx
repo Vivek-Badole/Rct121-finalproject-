@@ -54,7 +54,7 @@ function Card() {
       let res = await fetch("https://myntra-dataapi.onrender.com/men");
       let data = await res.json();
       setData(data);
-       console.log(data);
+      //  console.log(data);
     };
     getData();
   }, []);
@@ -100,21 +100,21 @@ function Card() {
         // return item.brand.toLowerCase().includes(isInput)
          return Object.values(item).join(" ").toLowerCase().includes(isInput.toLowerCase())
       } );
-      console.log(filterInputData,"searchInput1")
+      // console.log(filterInputData,"searchInput1")
       if (newInputData.length > 0) {
-        console.log(newInputData,"one")
+        // console.log(newInputData,"one")
         setNewInputData([...filterInputData, ...newdata]);
-        console.log(newInputData,"two")
+        // console.log(newInputData,"two")
       } else {
-        console.log(newInputData,"three")
+        // console.log(newInputData,"three")
         setNewInputData([...filterInputData]);
-        console.log(newInputData,"four")
+        // console.log(newInputData,"four")
       }
-      console.log(filterInputData,"searchInput2")
+      // console.log(filterInputData,"searchInput2")
     }else{
-      console.log(datas,"five")
+      // console.log(datas,"five")
       setData(datas);
-      console.log(datas,"six")
+      // console.log(datas,"six")
     }
   },[isInput])
 

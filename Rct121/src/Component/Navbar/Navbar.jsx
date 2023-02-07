@@ -21,13 +21,13 @@ const MainDiv = styled.div`
 const linkStyle = {
   textDecoration: "none",
   padding: "10px",
-  color: "black"
+  color: "black",
 };
 const divStyle = {
   position: "sticky",
   top: "0%",
   backgroundColor: "#ffffff",
-  zIndex: "1"
+  zIndex: "1",
 };
 import Logoimg from "../../Images/Logoimg.png";
 const logoimg = { height: "40px", margin: "20px", cursor: "pointer" };
@@ -37,24 +37,32 @@ const navStyles = { marginTop: "8px", padding: "10px" };
 const searchBar = {
   display: "flex",
   marginTop: "25px",
-  marginBottom:"5px",
-  marginLeft:"100px",
+  marginBottom: "5px",
+  marginLeft: "100px",
   backgroundColor: "whitesmoke",
-  border:"1px solid grey",
-  height:"33px",
-  width:"340px",
-  borderRadius:"2px"
+  border: "1px solid grey",
+  height: "33px",
+  width: "340px",
+  borderRadius: "2px",
 };
 function Navbar() {
   const navigate = useNavigate();
   const userAuth = useSelector((state) => state.loginreq.userAuth);
-  const { count,handleInput} = useContext(FilterContext);
-  
+  const { count, handleInput } = useContext(FilterContext);
+
   const handleChange = (e) => {
-    handleInput(e.target.value)
-    
+    handleInput(e.target.value);
   };
   //console.log(count);
+
+  let loginData = JSON.parse(localStorage.getItem("registerData"));
+  if (loginData) {
+    var a = loginData.length - 1;
+    var email = loginData[a].username;
+    var password = loginData[a].password;
+    var username = loginData[a].username;
+  }
+
   return (
     <>
       <div style={divStyle}>
@@ -78,7 +86,7 @@ function Navbar() {
                     style={{
                       display: "grid",
                       width: "80%",
-                      gridTemplateColumns: "repeat(10, auto) "
+                      gridTemplateColumns: "repeat(10, auto) ",
                     }}
                   >
                     <div
@@ -89,7 +97,7 @@ function Navbar() {
                         textAlign: "left",
                         margin: "10px",
                         padding: "10px",
-                        fontStyle: "1px"
+                        fontStyle: "1px",
                       }}
                     >
                       <div style={{ color: "red" }}>Topwear</div>
@@ -118,7 +126,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "red" }}>Bottomwear</div>
@@ -149,7 +157,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "red" }}>Footwear</div>
@@ -173,7 +181,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "red" }}>Sports & Active Wear</div>
@@ -201,7 +209,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "red" }}>Fashion Acessories</div>
@@ -236,7 +244,7 @@ function Navbar() {
                     style={{
                       display: "grid",
                       width: "80%",
-                      gridTemplateColumns: "repeat(10, auto) "
+                      gridTemplateColumns: "repeat(10, auto) ",
                     }}
                   >
                     <div
@@ -246,7 +254,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#F433FF" }}>
@@ -280,7 +288,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#F433FF" }}>Western Wear</div>
@@ -310,7 +318,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#F433FF" }}>Maternity</div>
@@ -341,7 +349,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#F433FF" }}>
@@ -371,7 +379,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#F433FF" }}>Gadgets</div>
@@ -407,7 +415,7 @@ function Navbar() {
                     style={{
                       display: "grid",
                       width: "60%",
-                      gridTemplateColumns: "repeat(5, auto) "
+                      gridTemplateColumns: "repeat(5, auto) ",
                     }}
                   >
                     <div
@@ -417,7 +425,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         marign: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "	#FF4500" }}>Boys Clothing</div>
@@ -443,7 +451,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         marign: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "	#FF4500" }}>Girls Clothing</div>
@@ -470,7 +478,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         marign: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "	#FF4500" }}>Footwear</div>
@@ -498,7 +506,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         marign: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "	#FF4500" }}>Infants</div>
@@ -525,7 +533,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         marign: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "	#FF4500" }}>Kids Accessories</div>
@@ -560,7 +568,7 @@ function Navbar() {
                     style={{
                       display: "grid",
                       width: "80%",
-                      gridTemplateColumns: "repeat(10, auto) "
+                      gridTemplateColumns: "repeat(10, auto) ",
                     }}
                   >
                     <div
@@ -570,7 +578,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#FFD700" }}>
@@ -604,7 +612,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#FFD700" }}>Bath</div>
@@ -635,7 +643,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#FFD700" }}>Home Décor</div>
@@ -666,7 +674,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#FFD700" }}>Kitchen & Table</div>
@@ -695,7 +703,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#FFD700" }}>Brands</div>
@@ -728,7 +736,7 @@ function Navbar() {
                     style={{
                       display: "grid",
                       width: "80%",
-                      gridTemplateColumns: "repeat(10, auto) "
+                      gridTemplateColumns: "repeat(10, auto) ",
                     }}
                   >
                     <div
@@ -738,7 +746,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#04aa6d" }}>Makeup</div>
@@ -762,7 +770,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#04aa6d" }}>
@@ -794,7 +802,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#04aa6d" }}>Haircare</div>
@@ -822,7 +830,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#04aa6d" }}>Appliances</div>
@@ -854,7 +862,7 @@ function Navbar() {
                         gridTemplateRows: "repeat(20,auto) ",
                         textAlign: "left",
                         margin: "10px",
-                        padding: "10px"
+                        padding: "10px",
                       }}
                     >
                       <div style={{ color: "#04aa6d" }}>Top Brands</div>
@@ -899,7 +907,7 @@ function Navbar() {
                       style={{
                         backgroundColor: "lightblue",
                         margin: "10px",
-                        borderRadius: "5%"
+                        borderRadius: "5%",
                       }}
                     >
                       {`EXPLORE STUDION >`}
@@ -914,13 +922,14 @@ function Navbar() {
             <div
               style={{
                 backgroundColor: "#FFFFFF",
-                height: "30px"
+                height: "30px",
               }}
             >
               <SearchIcon fontSize="large" style={{ color: "grey" }} />
             </div>
             <div>
-              <input className={styles.in}
+              <input
+                className={styles.in}
                 type="text"
                 placeholder="Search for products brands and more"
                 style={{
@@ -929,7 +938,8 @@ function Navbar() {
                   background: "white",
                   marginTop: "0px",
                   border: "none",
-                }} onChange={handleChange}
+                }}
+                onChange={handleChange}
               ></input>
             </div>
           </div>
@@ -940,7 +950,7 @@ function Navbar() {
                   fontSize: "13px",
                   broder: "none",
                   color: "black",
-                  fontWeight: "bold"
+                  fontWeight: "bold",
                 }}
               >
                 <PermIdentityIcon
@@ -961,19 +971,26 @@ function Navbar() {
                 textDecoration: "none",
                 color: "black",
                 marginTop: "17px",
-                paddingLeft: "10px"
+                paddingLeft: "10px",
               }}
             >
-              {userAuth ? (
+              {email && password ? (
                 <Link to="/cart" style={{ textDecoration: "none" }}>
                   <Badge color="secondary" badgeContent={count}>
                     <ShoppingBagOutlinedIcon style={{ color: "black" }} />
                   </Badge>
-
                   <br />
-                  <div style={{ textAlign: "center", color: "black" }}>
+                  <div
+                    style={{
+                      textAlign: "center",
+                      color: "black",
+                      fontSize: "13px",
+                      fontWeight: "bold",
+                    }}
+                  >
                     cart
                   </div>
+                  ({username})
                 </Link>
               ) : (
                 <Link to="/login" style={{ textDecoration: "none" }}>
@@ -987,7 +1004,7 @@ function Navbar() {
                       textAlign: "center",
                       color: "black",
                       fontSize: "13px",
-                      fontWeight: "bold"
+                      fontWeight: "bold",
                     }}
                   >
                     Bag

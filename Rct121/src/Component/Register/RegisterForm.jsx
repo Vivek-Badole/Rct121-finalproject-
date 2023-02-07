@@ -30,11 +30,11 @@ const RegisterForm = () => {
     setFormErrors(validate(formValues));
     setIsSubmit(true);
   };
-
+let datas = [];
   useEffect(() => {
     console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      let datas = JSON.parse(localStorage.getItem("registerData") || "[]");
+      datas = JSON.parse(localStorage.getItem("registerData") || "[]");
       datas = [...datas, formValues];
       localStorage.setItem("registerData", JSON.stringify(datas));
       //alert("Register Successfully");
